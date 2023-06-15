@@ -10,10 +10,11 @@
       </tr>
     </thead>
     <tbody>
+      <%= paginate @transactions %>
       <% @transactions.each do |transaction| %>
         <tr>
           <td>
-            <%= transaction.uid %>
+            <%= link_to transaction.uid, transaction_path(transaction) %>
           </td>
           <td>
             <%= number_to_currency(transaction.from_amount, unit: transaction.from_currency,
